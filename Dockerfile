@@ -6,11 +6,12 @@ LABEL description="DEEP as a Service Generic Container"
 RUN apt-get update && \
     apt-get upgrade -y
 
-RUN apt-get install -y \
+RUN apt-get install -y --no-install-recommends \
         git \
         curl \
         python-setuptools \
-        python-pip
+        python-pip \
+        python-wheel
 
 # TODO(aloga): use PyPi whenever possible
 RUN git clone https://github.com/IFCA/deepaas && \
