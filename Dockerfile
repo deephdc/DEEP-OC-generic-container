@@ -13,6 +13,8 @@ RUN apt-get install -y --no-install-recommends \
         python-pip \
         python-wheel
 
+WORKDIR /srv
+
 # TODO(aloga): use PyPi whenever possible
 RUN git clone https://github.com/IFCA/deepaas && \
     cd deepaas && \
