@@ -11,11 +11,14 @@ RUN apt-get install -y --no-install-recommends \
         curl \
         python-setuptools \
         python-pip \
-        python-wheel
+        python-wheel \
+        python3-setuptools \
+        python3-pip \
+        python3-wheel
 
 WORKDIR /srv
 
-# TODO(aloga): use PyPi whenever possible
+# We can use pip or pip3, depending on the python version that we want to use
 RUN git clone https://github.com/IFCA/deepaas && \
     cd deepaas && \
     pip install .
