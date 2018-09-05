@@ -19,7 +19,7 @@ RUN apt-get install -y --no-install-recommends \
 WORKDIR /srv
 
 # We can use pip or pip3, depending on the python version that we want to use
-RUN git clone https://github.com/IFCA/deepaas && \
+RUN git clone https://github.com/indigo-dc/deepaas && \
     cd deepaas && \
     pip install .
 
