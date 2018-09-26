@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 LABEL maintainer="Alvaro Lopez Garcia <aloga@ifca.unican.es>"
-LABEL version="0.1"
+LABEL version="0.2"
 LABEL description="DEEP as a Service Generic Container"
 
 RUN apt-get update && \
@@ -25,4 +25,4 @@ RUN git clone https://github.com/indigo-dc/deepaas && \
 
 EXPOSE 5000
 
-CMD deepaas-run
+CMD deepaas-run --listen-ip 0.0.0.0
