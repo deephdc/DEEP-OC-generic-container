@@ -1,6 +1,6 @@
-FROM ubuntu:18.04
+FROM bitnami/minideb
 LABEL maintainer="Alvaro Lopez Garcia <aloga@ifca.unican.es>"
-LABEL version="0.2"
+LABEL version="0.3.0"
 LABEL description="DEEP as a Service Generic Container"
 
 RUN apt-get update && \
