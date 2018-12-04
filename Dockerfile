@@ -1,6 +1,6 @@
 FROM bitnami/minideb
 LABEL maintainer="Alvaro Lopez Garcia <aloga@ifca.unican.es>"
-LABEL version="0.3.0"
+LABEL version="devel"
 LABEL description="DEEP as a Service Generic Container"
 
 RUN apt-get update && \
@@ -21,7 +21,7 @@ WORKDIR /srv
 # We can use pip or pip3, depending on the python version that we want to use
 RUN git clone https://github.com/indigo-dc/deepaas && \
     cd deepaas && \
-    pip install .
+    pip3 install .
 
 EXPOSE 5000
 
