@@ -1,6 +1,6 @@
 FROM bitnami/minideb
 LABEL maintainer="Alvaro Lopez Garcia <aloga@ifca.unican.es>"
-LABEL version="0.5.0"
+LABEL version="0.6.0"
 LABEL description="DEEP as a Service Generic Container"
 
 RUN apt-get update && \
@@ -33,6 +33,13 @@ RUN apt-get clean && \
 RUN pip3 install deepaas && \
     pip install deepaas
 
-EXPOSE 5000
+# Add environment variables so that we can change the ports exposed, although
+# this should not be modified
+ENV API_PORT=5000
+ENV API_IP=0.0.0.0
 
-CMD deepaas-run --listen-ip 0.0.0.0
+# If the operator changes the port above the expose will still be the port
+# 5000, unless they expose the new port as well.
+EXPOSE $API_PORT
+
+CMD deepaas-run --listen-ip $API_IP --listen-port $API_PORT
