@@ -19,7 +19,8 @@ RUN apt-get install -y --no-install-recommends \
 WORKDIR /srv
 
 # We can use pip or pip3, depending on the python version that we want to use
-RUN pip3 install deepaas
+RUN pip3 install deepaas && \
+    pip install deepaas
 
 EXPOSE 5000
 
