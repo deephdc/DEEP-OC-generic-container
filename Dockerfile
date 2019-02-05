@@ -30,8 +30,8 @@ RUN apt-get clean && \
     rm -rf /tmp/*
 
 # We can use pip or pip3, depending on the python version that we want to use
-RUN pip3 install deepaas && \
-    pip install deepaas
+RUN pip3 install 'deepaas>=0.3.0' && \
+    pip install 'deepaas>=0.3.0'
 
 # Add environment variables so that we can change the ports exposed, although
 # this should not be modified
@@ -42,4 +42,4 @@ ENV API_IP=0.0.0.0
 # 5000, unless they expose the new port as well.
 EXPOSE $API_PORT
 
-CMD deepaas-run --listen-ip $API_IP --listen-port $API_PORT
+CMD ["sh", "-c", "deepaas-run --openwhisk --listen-ip 0.0.0.0"]
