@@ -49,7 +49,7 @@ class ActionRunner:
     # @param binary the path where the binary will be located (may be the
     # same as source code path)
     def __init__(self, source=None, binary=None, zipdest=None):
-        defaultBinary = '/action/exec'
+        defaultBinary = '/home/alvaro/w/rep/DEEP/DOC/DEEP-OC-generic-container/__main__.py'
         self.source = source if source else defaultBinary
         self.binary = binary if binary else defaultBinary
         self.zipdest = zipdest if zipdest else os.path.dirname(self.source)
@@ -177,6 +177,10 @@ class ActionRunner:
         try:
             json_output = json.loads(lastLine)
             if isinstance(json_output, dict):
+                print("-" * 90)
+                print(type(json_output))
+                print(json_output)
+                print("-" * 90)
                 return (200, json_output)
             else:
                 return error(lastLine)
@@ -254,6 +258,7 @@ def run():
         response.status_code = 404
         return complete(response)
 
+    print dir(flask.request)
     message = flask.request.get_json(force=True, silent=True)
     if message and not isinstance(message, dict):
         return error()
@@ -262,6 +267,7 @@ def run():
         if not isinstance(args, dict):
             return error()
 
+    print(args, message)
     if runner.verify():
         try:
             code, result = runner.run(args, runner.env(message or {}))
