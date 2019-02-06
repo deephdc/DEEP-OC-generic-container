@@ -1,6 +1,6 @@
 # DEEP as a Service generic container
 
-![DEEP-Hybrid-DataCloud logo](https://deep-hybrid-datacloud.eu/wp-content/uploads/2018/01/logo.png)
+![DEEP-Hybrid-DataCloud logo](https://marketplace.deep-hybrid-datacloud.eu/images/logo-deep.png)
 
 This is a container that will simply run the DEEP as a Service API component,
 with a dummy application (model) that does almost nothing.
