@@ -1,6 +1,6 @@
 FROM bitnami/minideb
 LABEL maintainer="Alvaro Lopez Garcia <aloga@ifca.unican.es>"
-LABEL version="0.7.0"
+LABEL version="0.8.0"
 LABEL description="DEEP as a Service Generic Container"
 
 RUN apt-get update && \
