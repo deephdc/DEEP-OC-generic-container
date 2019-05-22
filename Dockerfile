@@ -1,6 +1,6 @@
 FROM bitnami/minideb
 LABEL maintainer="Alvaro Lopez Garcia <aloga@ifca.unican.es>"
-LABEL version="0.8.0"
+LABEL version="0.9.0"
 LABEL description="DEEP as a Service Generic Container"
 
 RUN apt-get update && \
@@ -42,4 +42,4 @@ ENV API_IP=0.0.0.0
 # 5000, unless they expose the new port as well.
 EXPOSE $API_PORT
 
-CMD ["sh", "-c", "deepaas-run --openwhisk --listen-ip 0.0.0.0"]
+CMD ["sh", "-c", "deepaas-run --openwhisk-detect --listen-ip 0.0.0.0"]
