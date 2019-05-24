@@ -1,0 +1,40 @@
+{
+    "title": "DEEP Generic Container",
+    "summary": "A generic container that can serve as an example project, without real functionality.",
+    "description": [
+        "The DEEP-OC-generic-container model provides no functionality, as it is rather a boilerplate repository that",
+        "can serve as an example.\n",
+
+        "It provides a Dockerfile template allowing to run several DEEP applications in the same Docker container."
+	],
+    "keywords": [
+        "test modules", "docker"
+    ],
+    "license": "Apache 2.0",
+    "cite_url": "http://doi.org/10.5281/zenodo.1544378",
+    "training_files_url": "demo_url",
+    "dataset_url": "demo_url",
+    "date_creation": "2018-07-03",
+    "sources": {
+		"dockerfile_repo": "https://github.com/deephdc/DEEP-OC-generic-container",
+		"docker_registry_repo": "deephdc/deep-oc-generic-container",
+		"code": "https://github.com/deephdc/DEEP-OC-generic-container"
+	},
+    "continuous_integration": {
+        "build_status_badge": "https://jenkins.indigo-datacloud.eu/buildStatus/icon?job=Pipeline-as-code/DEEP-OC-org/DEEP-OC-generic-container/master",
+        "build_status_url": "https://jenkins.indigo-datacloud.eu/job/Pipeline-as-code/job/DEEP-OC-org/job/DEEP-OC-generic-container/job/master"
+    },
+    "tosca": [
+        {
+            "title": "Mesos (CPU)",
+            "url": "https://raw.githubusercontent.com/indigo-dc/tosca-templates/master/deep-oc/deep-oc-generic-container-mesos-cpu.yml",
+            "inputs": [
+                "rclone_conf",
+                "rclone_url",
+                "rclone_vendor",
+                "rclone_user",
+                "rclone_pass"
+            ]
+        }
+    ]
+}
