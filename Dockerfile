@@ -1,6 +1,6 @@
 FROM bitnami/minideb
 LABEL maintainer="Alvaro Lopez Garcia <aloga@ifca.unican.es>"
-LABEL version="0.9.0"
+LABEL version="0.10.0"
 LABEL description="DEEP as a Service Generic Container"
 
 RUN apt-get update && \
@@ -29,17 +29,15 @@ RUN apt-get clean && \
     rm -rf /root/.cache/pip/* && \
     rm -rf /tmp/*
 
-# We can use pip or pip3, depending on the python version that we want to use
-RUN pip3 install 'deepaas>=0.3.0' && \
-    pip install 'deepaas>=0.3.0'
+## We can use pip or pip3, depending on the python version that we want to use
+RUN pip3 install 'deepaas>=0.4.0' && \
+    pip install 'deepaas>=0.4.0'
 
-# Add environment variables so that we can change the ports exposed, although
-# this should not be modified
-ENV API_PORT=5000
-ENV API_IP=0.0.0.0
+EXPOSE 5000
 
-# If the operator changes the port above the expose will still be the port
-# 5000, unless they expose the new port as well.
-EXPOSE $API_PORT
-
-CMD ["sh", "-c", "deepaas-run --openwhisk-detect --listen-ip 0.0.0.0"]
+# Do not run DEEPaaS within a shell (i.e. using "sh -c") here below, 
+# as the shell will become PID 1, and this will cause that the Docker
+# container will not stop on a "docker stop" command, as Docker sends
+# SIGTERM to the PID 1 (the shell will not propagate the signal to 
+# the child process.
+CMD ["deepaas-run", "--openwhisk-detect", "--listen-ip", "0.0.0.0", "--listen-port", "5000"]
