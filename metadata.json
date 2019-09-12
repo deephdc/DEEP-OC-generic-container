@@ -12,13 +12,13 @@
     ],
     "license": "Apache 2.0",
     "cite_url": "http://doi.org/10.5281/zenodo.1544378",
-    "training_files_url": "demo_url",
-    "dataset_url": "demo_url",
+    "dataset_url": "https://demo_url",
     "date_creation": "2018-07-03",
     "sources": {
 		"dockerfile_repo": "https://github.com/deephdc/DEEP-OC-generic-container",
 		"docker_registry_repo": "deephdc/deep-oc-generic-container",
-		"code": "https://github.com/deephdc/DEEP-OC-generic-container"
+		"code": "https://github.com/deephdc/DEEP-OC-generic-container",
+		"pre_trained_weights": "https://demo_url"
 	},
     "continuous_integration": {
         "build_status_badge": "https://jenkins.indigo-datacloud.eu/buildStatus/icon?job=Pipeline-as-code/DEEP-OC-org/DEEP-OC-generic-container/master",
